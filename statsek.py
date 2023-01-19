@@ -88,23 +88,44 @@ def add_data():
 
 def statsView():
     statApp = tk.Tk()
-    statApp.geometry("400x500")
+    statApp.geometry("620x500")
     statApp.title("StatsEK - Stats View")
 
-    ortalamaLabel = tk.Label(statApp, text="Ortalama = {}".format(ortalamaBul(dizi)), width=10, anchor="c")
-    ortalamaLabel.grid(row=3, column=1)
-    medyanLabel = tk.Label(statApp, text="Medyan = {}".format(medyanBul(dizi)), width=10, anchor="c")
-    medyanLabel.grid(row=3, column=2)
-    standartSapmaLabel = tk.Label(statApp, text="Standart Sapma = {}".format(standartSapmaBul(dizi)), width=10, anchor="c")
-    standartSapmaLabel.grid(row=3, column=3)
-    varyansLabel = tk.Label(statApp, text="Varyans = {}".format(varyansBul(dizi)), width=10, anchor="c")
-    varyansLabel.grid(row=3, column=4)
-    modLabel = tk.Label(statApp, text="Mod = {}".format(modBul(dizi)), width=10, anchor="c")
-    modLabel.grid(row=4, column=1)
-    minLabel = tk.Label(statApp, text="Min = {}".format(minBul(dizi)), width=10, anchor="c")
-    minLabel.grid(row=4, column=2)
-    maxLabel = tk.Label(statApp, text="Max = {}".format(maxBul(dizi)), width=10, anchor="c")
-    maxLabel.grid(row=4, column=3)
+    statsLabel = tk.Label(statApp, text="İstatistikler", font=("Helvetica", 16), width=30, anchor="c")
+    statsLabel.grid(row=0, column=1, columnspan=4)
+
+    treeViewStats = ttk.Treeview(statApp, selectmode="browse")
+    treeViewStats.grid(row=1, column=1, columnspan=1, padx=20, pady=20)
+    treeViewStats["columns"] = ("1", "2", "3", "4", "5", "6", "7")
+    treeViewStats["show"] = "headings"
+    treeViewStats.column("1", width=80, anchor="c")
+    treeViewStats.column("2", width=80, anchor="c")
+    treeViewStats.column("3", width=120, anchor="c")
+    treeViewStats.column("4", width=80, anchor="c")
+    treeViewStats.column("5", width=70, anchor="c")
+    treeViewStats.column("6", width=70, anchor="c")
+    treeViewStats.column("7", width=70, anchor="c")
+    treeViewStats.heading("1", text="Ortalama")
+    treeViewStats.heading("2", text="Medyan")
+    treeViewStats.heading("3", text="Standart Sapma")
+    treeViewStats.heading("4", text="Varyans")
+    treeViewStats.heading("5", text="Mod")
+    treeViewStats.heading("6", text="Min")
+    treeViewStats.heading("7", text="Max")
+
+    treeViewStats.insert(
+        "", 
+        "end", 
+        values=(
+            ortalamaBul(dizi), 
+            medyanBul(dizi), 
+            standartSapmaBul(dizi), 
+            varyansBul(dizi), 
+            modBul(dizi), 
+            minBul(dizi), 
+            maxBul(dizi)
+            )
+        )
 
     statApp.mainloop()
 
