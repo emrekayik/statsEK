@@ -1,5 +1,3 @@
-x = [9, 2, 5, 4, 12, 7, 8, 11, 9, 3, 7,4,12,5,4,10,9,6,9,4]
-
 def ortalamaBul(dizi):
     veriAdedi = len(dizi)
     if veriAdedi <= 1:
@@ -46,7 +44,7 @@ def minBul(dizi):
 def maxBul(dizi):
     return max(dizi)
 
-
+""" 
 print("Ortalama: ", ortalamaBul(x))
 print("Medyan: ", medyanBul(x))
 print("Standart Sapma: ", standartSapmaBul(x))
@@ -54,3 +52,4 @@ print("Varyans: ", varyansBul(x))
 print("Mod: ", modBul(x))
 print("Min: ", minBul(x))
 print("Max: ", maxBul(x))
+ """

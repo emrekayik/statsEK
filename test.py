@@ -31,10 +31,24 @@ def veriCek():
     cur.execute("SELECT * FROM test")
     rows = cur.fetchall()
     for row in rows:
+        global i 
         i = i + 1
         trv.insert("", "end", values=(i, row[1]))
     conn.close()
 veriCek()
+# Veri temizleme
+def veriTemizle():
+    trv.delete(*trv.get_children())
+    conn = sqlite3.connect("a.db")
+    cur = conn.cursor()
+    cur.execute("DELETE FROM test")
+    conn.commit()
+    conn.close()
+    global i
+    i = 0
+
+bTemizle = tk.Button(my_w, text="Verileri Temizle", width=10, command=lambda: veriTemizle())
+bTemizle.grid(row=7, column=1)
 
 l0 = tk.Label(my_w, text="Veri Ekle", font=("Helvetica", 16), width=30, anchor="c")
 l0.grid(row=2, column=1, columnspan=4)
