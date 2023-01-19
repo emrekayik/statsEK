@@ -29,3 +29,28 @@ def standartSapmaBul(dizi):
 
 def varyansBul(dizi):
      return standartSapmaBul(dizi) ** 2
+
+def modBul(dizi):
+    dizi = sorted(dizi)
+    veriAdedi = len(dizi)
+    mod = []
+    for i in range(veriAdedi):
+        if dizi.count(dizi[i]) > 1:
+            if dizi[i] not in mod:
+                mod.append(dizi[i])
+    return mod
+
+def minBul(dizi):
+    return min(dizi)
+
+def maxBul(dizi):
+    return max(dizi)
+
+
+print("Ortalama: ", ortalamaBul(x))
+print("Medyan: ", medyanBul(x))
+print("Standart Sapma: ", standartSapmaBul(x))
+print("Varyans: ", varyansBul(x))
+print("Mod: ", modBul(x))
+print("Min: ", minBul(x))
+print("Max: ", maxBul(x))

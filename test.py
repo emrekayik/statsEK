@@ -4,18 +4,24 @@ from tkinter import *
 
 my_w=tk.Tk()
 my_w.geometry('400x500')
-my_w.title("StatsEK")
+my_w.title("Stats")
 trv=ttk.Treeview(my_w,selectmode='browse')
 trv.grid(row=1,column=1,columnspan=4,padx=20,pady=20)
 trv["columns"]=("1","2","3","4","5")
 trv['show']='headings'
 trv.column("1",width=30,anchor='c')
 trv.column("2",width=80,anchor='c')
-trv.heading("1",text="xi")
-trv.heading("2",text="X")
+trv.column("3",width=80,anchor='c')
+trv.column("4",width=80,anchor='c')
+trv.column("5",width=80,anchor='c')
+trv.heading("1",text="id")
+trv.heading("2",text="Name")
+trv.heading("3",text="Class")
+trv.heading("4",text="Mark")
+trv.heading("5",text="Gender")
 i=1
 trv.insert("",'end',iid=i,
-		values=(i,1))
+		values=(i,'Alex','Four',78,'Male'))
 
 l0 = tk.Label(my_w,  text='Add Student',
               font=('Helvetica', 16), width=30,anchor="c" )  
